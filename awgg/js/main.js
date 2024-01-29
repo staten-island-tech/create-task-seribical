@@ -1,10 +1,11 @@
 import "../style.css"
 
 function reverse(word){
-    let split = word.split("");
-    let reversed = split.reverse();
-    let rword = reversed.join("");
-    return rword
+    let split = word.split("")
+    let reversed = split.reverse()
+    let rword = reversed.join("")
+    let final = rword.toUpperCase()
+    return final
 }
 
 async function genword(){
@@ -12,7 +13,7 @@ async function genword(){
         let call = await fetch(`https://random-word-api.herokuapp.com/word?length=5&lang=en`);
         let word = await call.json();
         let ans = String(word[0])
-        game(reverse(ans))
+        game(reverse(ans),ans)
     }
     catch{
         console.log("caugh")
@@ -20,7 +21,7 @@ async function genword(){
 
 }
 
-function game(answer){
+function game(answer,answered){
     let tries = 1
     document.querySelector("#input").addEventListener("keyup",(event)=>{
         if(event.key==="Enter"){
@@ -59,7 +60,7 @@ function game(answer){
                     }
                     }
                     if(tries===6){
-                        alert("yousuck")
+                        alert(`youbad the wordw as ${answered}`)
                     }
                   tries++
             }else{
