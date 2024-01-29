@@ -64,7 +64,7 @@ function game(answer,answered){
                     }
                   tries++
             }else{
-                alert("5 letters")
+                
             }
         }
         
