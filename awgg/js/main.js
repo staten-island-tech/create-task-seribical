@@ -31,15 +31,6 @@ function game(answer,answered){
                 console.log(answer)
                 document.querySelector(`#column${tries}`).innerHTML=""
                 document.querySelector("#input").value=""
-                    if(guess===answer){
-                        for (let i = 0; i < answer.length; i++) {
-                            document.querySelector(`#column${tries}`).insertAdjacentHTML(
-                                "afterbegin",
-                                `<div id="boxyes">${guess[i]}</div>`
-                            )
-                        }
-                        alert("you winned")
-                    }else{
                         for (let i = 0; i < answer.length; i++) {
                             if(guess[i]===answer[i]){
                                 document.querySelector(`#column${tries}`).insertAdjacentHTML(
@@ -58,10 +49,8 @@ function game(answer,answered){
                                 )
                             }
                     }
-                    }
-                    if(tries===6){
-                        alert(`youbad the wordw as ${answered}`)
-                    }
+                    
+                    
                   tries++
             }else{
                 
