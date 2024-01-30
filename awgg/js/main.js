@@ -48,19 +48,15 @@ function game(answer,answered){
                                     `<div id="boxno">${guess[i]}</div>`
                                 )
                             }
-                    }
-                    
-                    
+                    }   
                   tries++
-            }else{
-                
-            }
+            }else{}
         }
-        
     }
-    
     )
 }
+
+
 
 genword();
 
