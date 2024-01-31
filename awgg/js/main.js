@@ -31,24 +31,21 @@ function game(answer,answered){
                 console.log(answer)
                 document.querySelector(`#column${tries}`).innerHTML=""
                 document.querySelector("#input").value=""
-                        for (let i = 0; i < answer.length; i++) {
-                            if(guess[i]===answer[i]){
-                                document.querySelector(`#column${tries}`).insertAdjacentHTML(
-                                    "afterbegin",
-                                    `<div id="boxyes">${guess[i]}</div>`
-                                )
-                            }else if(answer.includes(guess[i])===true){
-                                document.querySelector(`#column${tries}`).insertAdjacentHTML(
-                                    "afterbegin",
-                                    `<div id="boxmaybe">${guess[i]}</div>`
-                                )
-                            }else if(answer.includes(guess[i])===false){
-                                document.querySelector(`#column${tries}`).insertAdjacentHTML(
-                                    "afterbegin",
-                                    `<div id="boxno">${guess[i]}</div>`
-                                )
-                            }
-                    }   
+                if(guess===answer){
+                    checkletter(guess,answer,tries)
+                    document.querySelector("#input").remove()
+                    document.querySelector(`#app`).insertAdjacentHTML(
+                        "beforeend",
+                        `<p>you winned</p>`)
+                }else if(tries===6){
+                    checkletter(guess,answer,tries)
+                    document.querySelector("#input").remove()
+                    document.querySelector(`#app`).insertAdjacentHTML(
+                        "beforeend",
+                        `<p>you lose the word was ${answered}</p>`)
+                }else{
+                    checkletter(guess,answer,tries)
+                           }
                   tries++
             }else{}
         }
@@ -56,7 +53,25 @@ function game(answer,answered){
     )
 }
 
-
+function checkletter(guess,answer,tries){
+    for (let i = 0; i < answer.length; i++) {
+        if(guess[i]===answer[i]){
+            document.querySelector(`#column${tries}`).insertAdjacentHTML(
+                "afterbegin",
+                `<div id="boxyes">${guess[i]}</div>`
+            )
+        }else if(answer.includes(guess[i])===true){
+            document.querySelector(`#column${tries}`).insertAdjacentHTML(
+                "afterbegin",
+                `<div id="boxmaybe">${guess[i]}</div>`
+            )
+        }else if(answer.includes(guess[i])===false){
+            document.querySelector(`#column${tries}`).insertAdjacentHTML(
+                "afterbegin",
+                `<div id="boxno">${guess[i]}</div>`
+            )
+        }
+}
+}
 
 genword();
-
