@@ -49,7 +49,7 @@ function game(answer,answered){
                 document.querySelector("#input").value=""
                 if(guess===answer){
                     checkletter(guess,answer,tries)
-                    status(answered, tries, "lost")
+                    status(answered, tries, "won")
                 }else if(tries===6){
                     checkletter(guess,answer,tries)
                     status(answered, tries, "lost")
