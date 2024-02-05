@@ -15,6 +15,7 @@ async function genword(){
         let call = await fetch("https://random-word-api.herokuapp.com/word?length=5&lang=en");
         let word = await call.json();
         let ans = String(word[0])
+        console.log(ans)
         game(reverse(ans),ans)
     }
     catch{console.log("fix your code")}
